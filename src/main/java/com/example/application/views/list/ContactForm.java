@@ -4,11 +4,15 @@ import java.util.List;
 
 import com.example.application.data.entity.Company;
 import com.example.application.data.entity.Status;
+import com.vaadin.flow.component.Key;
 import com.vaadin.flow.component.button.Button;
+import com.vaadin.flow.component.button.ButtonVariant;
 import com.vaadin.flow.component.combobox.ComboBox;
 import com.vaadin.flow.component.formlayout.FormLayout;
+import com.vaadin.flow.component.orderedlayout.HorizontalLayout;
 import com.vaadin.flow.component.textfield.EmailField;
 import com.vaadin.flow.component.textfield.TextField;
+
 
 public class ContactForm extends FormLayout {
     TextField firstName = new TextField("First name");
@@ -30,12 +34,12 @@ public class ContactForm extends FormLayout {
         add(firstName, lastName, email, company, status, createButtonsLayout());
     }
 
-    private HorizontalLayouy createButtonsLayout() {
+    private HorizontalLayout createButtonsLayout() {
         save.addThemeVariants(ButtonVariant.LUMO_PRIMARY);
         delete.addThemeVariants(ButtonVariant.LUMO_ERROR);
         close.addThemeVariants(ButtonVariant.LUMO_TERTIARY);
-        save.addClickShortcut(Key.ENTER):
+        save.addClickShortcut(Key.ENTER);
         close.addClickShortcut(Key.ESCAPE);
-        return new HorizontalLayouy(save, delete, close);
+        return new HorizontalLayout(save, delete, close);
     }
 }
