@@ -31,6 +31,7 @@ public class ListView extends VerticalLayout {
         configureForm();
         add(getToolbar(), getContent());
         updateList();
+        closeEditor();
     }
 
     private Component getContent() {
@@ -64,6 +65,20 @@ public class ListView extends VerticalLayout {
         var toolbar = new HorizontalLayout(filterText, addContactButton);
         toolbar.addClassName("toolbar");
         return toolbar;
+    }
+
+    public void editContact(Contact contact) {
+        if (contact == null) {
+            closeEditor();
+        } else {
+            form.setContact(contact);
+            form.setVisible(false);
+            addClassName("editing");
+        }
+    }
+
+    private void closeEditor() {
+        
     }
 
     private void updateList() {
